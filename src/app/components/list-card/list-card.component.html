@@ -1,0 +1,29 @@
+<div class="container text-center">
+    <div class="row">
+        <div class="col-md-4 col-sm-12 mt-3 mb-3" *ngFor="let dataList of list">
+
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-title fw-bold">
+                        {{dataList.title}}
+                    </div>
+
+                    <div class="card-text text-start">
+                        {{dataList.comment}}
+                    </div>
+                </div>
+                
+                <div class="form-check">
+                    <input class="form-check-input border-success m-1" style="float: none;" type="checkbox" [(ngModel)]="dataList.completed" (change)="handleChangeToSave(dataList)" >
+                    <label class="form-check-label" style="display: inline;">
+                        Task Completed
+                    </label>
+                </div>
+
+                <button type="button" class="btn btn-danger m-2" (click)="removeData(dataList.title)" *ngIf="dataList.completed">Delete</button>
+
+            </div>
+
+        </div>
+    </div>
+</div>
